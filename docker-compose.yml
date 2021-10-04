@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  hermes:
+    image: hermes-dydx-mm:0.2
+    restart: always
+    volumes:
+      - ./config_dydx_st.yml:/hermes/app_config.yml
+      - ./account_config.json:/hermes/configs/account_config.json
+    ports:
+      - "127.0.0.1:1820:2021"
