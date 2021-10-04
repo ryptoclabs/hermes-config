@@ -1,20 +1,8 @@
 app_id: dev
 env: dev 
 
-max_update_orderbook_elapsed_time_ms: 1000
-
-mongodb:
-  db:  market
-  #address: mongo-cluster-1:27047,mongo-cluster-2:27047,mongo-cluster-3:27047
-  #rs: ryptoc_hermes
-  address: 127.0.0.1:27017
-  rs: rs0
-  id: hermes
-  password: hermes1818
-  
-sleep_ms: 1000
-
-
+#strategy internal logic period
+sleep_ms: 300
 
 board_config:
   exchange: dydx
@@ -23,31 +11,32 @@ board_config:
   coin_pairs:
    - btc/usd
   dbsync: False
-  startTime: "2021-09-25 00:00:00"
-  #endTime: "2020-08-13 00:00:00"
  
-
 model: 
   type : dydx-mm#1
   order_unit : 1000
   orderbook: dydx_orderbook
   trade: dydx_trade
-  # board_subscriptions:
-  #   dydx_orderbook: event_orderbook_updated
-  #   dydx_trade: event_new_trade
   order_execution: dydx_account
   
-
 boards:
+  binance_account:
+    type: account
+    exchange: binance
+    market: future
+    coin_pairs:
+     - btc/usdt
+ 
   dydx_account:
     type: account
-   
+
   dydx_orderbook:
     type: orderbook
     commands:
       - 
        type : ws
        command : orderbook
+
   dydx_trade:
      type: trade
      commands:
