@@ -9,15 +9,12 @@ board_config:
   #source : binance
   market: future
   coin_pairs:
-   - btc/usd
+   - eth/usd
   dbsync: False
  
 model: 
   type : dydx-mm#1
-  order_unit : 1000
-  orderbook: dydx_orderbook
-  trade: dydx_trade
-  order_execution: dydx_account
+ 
   
 boards:
   binance_account:
@@ -25,7 +22,7 @@ boards:
     exchange: binance
     market: future
     coin_pairs:
-     - btc/usdt
+     - eth/usdt
  
   dydx_account:
     type: account
