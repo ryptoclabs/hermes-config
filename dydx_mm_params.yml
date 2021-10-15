@@ -1,13 +1,13 @@
 type : dydx-mm#1
 target_coin_pair : eth/usd
-order_unit : 50
+order_unit : 40
 orderbook: dydx_orderbook
 trade: dydx_trade
 order_execution_accounts:
      dydx: dydx_account
      binance: binance_account
 board_subscriptions:
-    dydx_orderbook: event_orderbook_updated
+    #dydx_orderbook: event_orderbook_updated
     dydx_trade: event_new_trade
     dydx_account : event_order_status_changed 
   
