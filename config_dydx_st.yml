@@ -17,7 +17,7 @@ model:
  
 mongodb:
   db:  market
-  address: mongo_prod1:27017
+  address: mongo_prod:27017
   rs: rs0
   id: hermes
   password: hermes1818 
