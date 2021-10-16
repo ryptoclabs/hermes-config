@@ -17,7 +17,7 @@ model:
  
 mongodb:
   db:  market
-  address: 127.0.0.1:27017
+  address: mongo_prod1:27017
   rs: rs0
   id: hermes
   password: hermes1818 
@@ -32,7 +32,7 @@ boards:
  
   dydx_account:
     type: account
-    #simulation-on: None
+#    simulation-on: None
 
   dydx_orderbook:
     type: orderbook
