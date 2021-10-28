@@ -6,7 +6,6 @@ sleep_ms: 100
 
 board_config:
   exchange: dydx
-  #source : binance
   market: future
   coin_pairs:
    - eth/usd
@@ -18,22 +17,14 @@ model:
 mongodb:
   db:  market
   address: mongo_prod:27017
+  #address: mongo1:27017
   rs: rs0
   id: hermes
   password: hermes1818 
 
 boards:
-  # binance_account:
-  #   type: account
-  #   exchange: binance
-  #   market: future
-  #   coin_pairs:
-  #    - eth/usdt
- 
   dydx_account:
     type: account
-#    simulation-on: None
-
   dydx_orderbook:
     type: orderbook
     commands:
@@ -47,5 +38,51 @@ boards:
        - 
         type : ws
         command : trade
-
+ 
+  # binance_account:
+  #   type: account
+  #   exchange: binance
+  #   market: future
+  #   coin_pairs:
+  #    - eth/usdt
+  binance_trade:
+    type: trade
+    coin_pairs:
+      - 'eth/usdt'
+    exchange: binance
+    commands:
+      - 
+        command : aggTrade
+  binance_liquidation:
+    type : liquidation
+    coin_pairs:
+     - 'eth/usdt'
+    exchange: binance
+    commands:
+      - 
+        market : future
+        type : ws
+        command : liquidation
+  binance_candle: 
+    type: candle
+    coin_pairs:
+      - 'eth/usdt'
+    exchange: binance
+    init:
+       - 
+        interval: '1m'
+  binance_orderbook:
+    type: orderbook
+    coin_pairs:
+      - 'eth/usdt'
+    exchange: binance
+    commands:
+      - 
+        type : ws
+        command : orderbook
+        interval: 100ms
+        source : binance
+    reset:
+      - 
+        command : orderbook
 ws_debug_port: 2021
