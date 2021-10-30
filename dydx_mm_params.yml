@@ -1,4 +1,5 @@
 type : dydx-mm#1
+sync_audit_data : False
 target_coin_pair : eth/usd
 order_unit : 40
 order_execution_accounts:
