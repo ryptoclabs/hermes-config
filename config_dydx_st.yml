@@ -2,7 +2,7 @@ app_id: dev
 env: dev 
 
 #strategy internal logic period
-sleep_ms: 100
+sleep_ms: 10
 
 board_config:
   exchange: dydx
@@ -39,12 +39,12 @@ boards:
         type : ws
         command : trade
  
-  # binance_account:
-  #   type: account
-  #   exchange: binance
-  #   market: future
-  #   coin_pairs:
-  #    - eth/usdt
+  binance_account:
+    type: account
+    exchange: binance
+    market: future
+    coin_pairs:
+     - eth/usdt
   binance_trade:
     type: trade
     coin_pairs:
