@@ -1,0 +1,62 @@
+app_id: dev
+env: dev
+max_update_orderbook_elapsed_time_ms: 1000
+sleep_ms: 100
+
+####global board configurations
+
+board_config:
+  exchange: binance
+  dbsync: False
+  market: future
+  coin_pairs:
+   - btc/usdt
+  startTime: "2021-12-06 00:00:00"
+
+boards:
+  trade_board:
+    type: trade
+    commands:
+        - 
+         type : ws
+         command : aggTrade
+  liquidation:
+    type : liquidation
+    commands:
+      - 
+       type : ws
+       command : liquidation
+  orderbook_board:
+     type: orderbook
+     commands:
+       - 
+        type : ws
+        command : orderbook
+        interval: 100ms
+     reset:
+       - 
+        type : rest
+        command : orderbook
+  general:
+    type : generic
+    commands: 
+      - 
+       type : rest
+       command : open_interest
+       repeat: 1
+
+  candle_board: 
+    type: candle
+    init:
+      - 
+        interval: '1m'
+    indicators:
+      - 
+         type: trend
+         windows: 168
+         draw_plot: True
+      #  - 
+        #  type: trend
+        #  windows: 672
+
+ws_debug_port: 5000
