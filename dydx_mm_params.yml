@@ -1,5 +1,6 @@
 type : dydx-mm#1
 max_latency_in_ms: 200
+min_orderbook_size_in_usd: 3000000
 sync_audit_data : False
 target_coin_pair : eth/usd
 order_unit : 40
